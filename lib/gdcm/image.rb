@@ -112,7 +112,7 @@ module GDCM
       end
     end
 
-    def convert(read_opts={})
+    def convert
       if @tempfile
         new_tempfile = GDCM::Utilities.tempfile(".dcm")
         new_path = new_tempfile.path
@@ -123,10 +123,6 @@ module GDCM
       input_path = path.dup
 
       GDCM::Tool::Convert.new do |convert|
-        read_opts.each do |opt, val|
-          convert.send(opt.to_s, val)
-        end
-
         yield convert if block_given?
         convert << input_path
         convert << new_path
