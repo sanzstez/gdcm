@@ -1,0 +1,10 @@
+/pkg
+coverage
+*.lock
+.idea
+.yardoc
+.rvmrc
+.rubocop.yml
+tags
+doc/
+bin/rspec
