@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.email       = ['sanzstez@gmail.com']
   s.homepage    = 'https://github.com/sanzstez/gdcm'
 
-  s.files        = Dir['VERSION', 'MIT-LICENSE', 'Rakefile', 'lib/**/*']
+  s.files        = Dir['README.MD', 'LICENSE', 'Rakefile', 'lib/**/*']
   s.require_paths = ['lib']
 
   s.required_ruby_version = '>= 2.0'
