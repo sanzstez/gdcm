@@ -213,5 +213,6 @@ module GDCM
   end
 end
 
+require "gdcm/tool/dump"
 require "gdcm/tool/convert"
 require "gdcm/tool/identify"
