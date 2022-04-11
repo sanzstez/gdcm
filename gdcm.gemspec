@@ -7,8 +7,7 @@ Gem::Specification.new do |s|
   s.name        = 'gdcm'
   s.version     = GDCM.version
   s.platform    = Gem::Platform::RUBY
-  s.summary     = 'Ruby adapter for GDCM tools for DICOM medical files.'
-  s.description = 'Ruby adapter for GDCM tools for DICOM medical files.'
+  s.description = s.summary = 'Ruby adapter for GDCM tools for DICOM medical files.'
   s.requirements << 'You must have GDCM tools installed'
   s.licenses    = ['MIT']
 

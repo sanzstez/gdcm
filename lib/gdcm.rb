@@ -2,7 +2,6 @@ require 'gdcm/version'
 require 'gdcm/configuration'
 
 module GDCM
-
   extend GDCM::Configuration
 
   ##
@@ -20,4 +19,4 @@ module GDCM
 end
 
 require 'gdcm/tool'
-require 'gdcm/image'
+require 'gdcm/package'

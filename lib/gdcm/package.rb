@@ -2,10 +2,11 @@ require 'tempfile'
 require 'stringio'
 require 'pathname'
 
+require 'gdcm/package/info'
 require 'gdcm/utilities'
 
 module GDCM
-  class Image
+  class Package
 
     ##
     # This is the primary loading method used by all of the other class
@@ -82,10 +83,15 @@ module GDCM
 
     attr_reader :path
     attr_reader :tempfile
+    attr_reader :meta
 
     def initialize(input_path, tempfile = nil)
       @path = input_path.to_s
       @tempfile = tempfile
+    end
+
+    def info
+      @info ||= GDCM::Package::Info.new(self)
     end
 
     def to_blob
@@ -106,10 +112,7 @@ module GDCM
     end
 
     def identify
-      GDCM::Tool::Identify.new do |builder|
-        yield builder if block_given?
-        builder << path
-      end
+      info.identify
     end
 
     def convert
@@ -136,6 +139,7 @@ module GDCM
       end
 
       path.replace new_path
+      info.clear
 
       self
     end
