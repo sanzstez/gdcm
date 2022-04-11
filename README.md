@@ -150,8 +150,8 @@ end #=> `gdcmconv --raw --verbose input.dcm output.dcm`
 convert = GDCM::Tool::Convert.new
 convert.raw
 convert.verbose
-convert << "input.jpg"
-convert << "output.jpg"
+convert << "input.dcm"
+convert << "output.dcm"
 convert.call #=> `gdcmconv --raw --verbose input.dcm output.dcm`
 ```
 
