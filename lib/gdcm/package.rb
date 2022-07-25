@@ -106,13 +106,9 @@ module GDCM
     end
 
     def validate!
-      identify
+      info.meta
     rescue GDCM::Error => error
       raise GDCM::Invalid, error.message
-    end
-
-    def identify
-      info.identify
     end
 
     def convert
@@ -139,7 +135,8 @@ module GDCM
       end
 
       path.replace new_path
-      info.clear
+
+      info.meta = nil
 
       self
     end

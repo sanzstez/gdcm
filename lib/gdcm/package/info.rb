@@ -1,10 +1,10 @@
 module GDCM
   class Package
     class Info
-      attr_reader :package_instance
+      attr_reader :base
 
-      def initialize package_instance
-        @package_instance = package_instance
+      def initialize base
+        @base = base
       end
 
       def raw
@@ -37,21 +37,21 @@ module GDCM
         @meta ||= identify
       end
 
-      def clear
-        @meta = nil
+      def meta= value
+        @meta = value
       end
 
       def dump
         GDCM::Tool::Dump.new do |builder|
           yield builder if block_given?
-          builder << package_instance.path
+          builder << base.path
         end
       end
 
       def identify
         GDCM::Tool::Identify.new do |builder|
           yield builder if block_given?
-          builder << package_instance.path
+          builder << base.path
         end
       end
     end
