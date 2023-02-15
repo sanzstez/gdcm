@@ -139,6 +139,9 @@ module GDCM
       info.meta = nil
 
       self
+    rescue GDCM::Invalid, GDCM::Error => e
+      new_tempfile.unlink if new_tempfile && @tempfile != new_tempfile
+      raise e
     end
 
     ##
